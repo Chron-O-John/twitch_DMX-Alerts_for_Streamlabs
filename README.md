@@ -16,4 +16,6 @@ Keep in mind that settings are **not saved automatically**!
 Also *double, and triple check* if you have entered your token correctly as, right now, the application doesn't check if it is correct.
 # Special Thanks
 Special thanks go out to Krogman ([here on Twitch](https://www.twitch.tv/krogmann/)) who inspred and motivated me to even start programming this (which is my first coding-project after I finished school 13 years ago)
-
+# Contact
+If you have any questions, comments or suggestions for additional features don't hesitate to contact me via Discord.
+My handle is: Chron-O-John#0201
