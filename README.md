@@ -1,4 +1,6 @@
 # Chron-O-John's Twitch(streamlabs) DMX Alerts
+## Download
+You can download this wounderful piece of software [here](https://github.com/Chron-O-John/twitch_DMX-Alerts_for_Streamlabs/releases/download/0.1/DMX-Alerts.zip)
 ## Description
 This Programm enables you to trigger **DMX-Commands** when an event, like new follower or subscribition, happens in your livestream to an **RS485 Serial device**.
 So for example you could trigger a light or fog machine when someone subscribes to your channel.
