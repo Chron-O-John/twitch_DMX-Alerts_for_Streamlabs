@@ -26,7 +26,7 @@ class Model:
                 self.dmx = Dmx(daemon=True, frequency=frequency,COM=port)
                 self.dmx_worker = self.Dmx_Worker(self.dmx)
 
-        if self.dmx.isAlive():
+        if self.dmx.is_alive():
             self.dmx_worker.stop()
             self.dmx.stop()
             del self.dmx
@@ -53,11 +53,14 @@ class Model:
                 dmx_settings['seconds'] = self.controller.config.collection.data[msgtype]['seconds']
                 dmx_settings['fallback'] = self.controller.config.collection.data[msgtype]['default']
                 if 'secondsperunit' in (self.controller.config.collection.data[msgtype]):
-                    dmx_settings['multiplier'] = msg['message'][0]['amount']
+                    if self.controller.config.collection.data[msgtype]['secondsperunit']:
+                        dmx_settings['multiplier'] = msg['message'][0]['amount']
+                    else:
+                        dmx_settings['multiplier'] = 1
                 else:
                     dmx_settings['multiplier'] = 1
                 pass
-            self.controller.view.addToList(f"Setting DMX-Channel {dmx_settings['channel']} to {dmx_settings['value']} for {dmx_settings['seconds']} seconds, then back to {dmx_settings['fallback']}")
+            self.controller.view.addToList(f"Setting DMX-Channel {dmx_settings['channel']} to {dmx_settings['value']} for {dmx_settings['seconds']}*{dmx_settings['multiplier']} = {float(dmx_settings['seconds'])*float(dmx_settings['multiplier'])} seconds, then back to {dmx_settings['fallback']}")
             self.dmx_worker.q.put(dmx_settings)
 
         else:

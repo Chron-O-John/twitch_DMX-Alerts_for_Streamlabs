@@ -1,7 +1,7 @@
 '''
     Thomas Vanek 
-    20.01.2020
-    verion 0.1
+    15.03.2022
+    verion 0.3
 '''
 
 from model import Model

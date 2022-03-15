@@ -161,7 +161,7 @@ class View(tk.Tk):
         lblOAuthToken = tk.Label(frmTokenConfig, text="Your Socket API Token")
         self.entrOAuthToken = ttk.Entry(frmTokenConfig, show="*", textvariable=self.sockettoken, width=70, justify='right')
         #self.entrOAuthToken = tk.Entry(frmTokenConfig, textvariable=self.sockettoken , justify='right')
-        btnGetToken = tk.Button(frmTokenConfig, text="Get OAuth-Token", command=self.getOAuthToken)
+        btnGetToken = tk.Button(frmTokenConfig, text="Get Token", command=self.getOAuthToken)
         chkMask = tk.Checkbutton(frmTokenConfig, text='Mask',anchor='w',variable=self.maskToken, command=self.cklicked_mask)
 
         lblAlertWhen = tk.Label(canvas, text="Alert:", height=2, anchor='s')
@@ -203,7 +203,7 @@ class View(tk.Tk):
             if 'secondsperunit' in self.controller.config.collection.data[eventname]:
                 self.eventsecondsPerUnit[eventname] = tk.BooleanVar(value=self.controller.config.collection.data[eventname]['secondsperunit'])
                 chkPerUnit[eventname] = tk.Checkbutton(frmEvent[eventname], text=f"use seconds per unit", anchor='w',variable=self.eventsecondsPerUnit[eventname])
-                spinSecIncrement=0.1
+                spinSecIncrement=0.01
                 btnSecPerUnit[eventname] = tk.Button(frmEvent[eventname], text="?", width=2, command=self.btnSecPerUnitClicked)
             else:
                 spinSecIncrement=1
@@ -213,7 +213,7 @@ class View(tk.Tk):
             lblEventDMXValue[eventname] = tk.Label(frmEvent[eventname], text="with value")
             spinEventValue[eventname] = tk.Spinbox(frmEvent[eventname], justify='right', from_=0, to=255, width=3, textvariable=self.eventDmxValue[eventname])
             lblEventSeconds[eventname] = tk.Label(frmEvent[eventname], text="for")
-            spinEventSeconds[eventname] = tk.Spinbox(frmEvent[eventname], justify='right', from_=0, to=300, width=3,increment=spinSecIncrement, textvariable=self.eventSeconds[eventname])
+            spinEventSeconds[eventname] = tk.Spinbox(frmEvent[eventname], justify='right', from_=0, to=300, width=4,increment=spinSecIncrement, textvariable=self.eventSeconds[eventname])
             lblEventDefaultTo[eventname] = tk.Label(frmEvent[eventname], text="seconds, then set to")
             spinEventDefaultTo[eventname] = tk.Spinbox(frmEvent[eventname], justify='right', from_=0, to=255, width=3, textvariable=self.eventDefaultTo[eventname])
 
